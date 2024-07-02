@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.titulo {
+    text-align: left;
+    padding: 8px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(121, 121, 202, 0.623);
+}
+
+.contacto {
+    text-align: right;
+    padding: 8px;
+    background-color: rgba(121, 121, 202, 0.623);
+}
+
+.contacto a {
+    margin-left: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.menu li a:hover {
+    color: #777;
+}
+
+.presupuesto {
+    margin: 20px auto;
+    background-color: #fff;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.imagen {
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.calculadora {
+    width: 50%;
+    padding: 20px;
+    vertical-align: top;
+    box-sizing: border-box;
+}
+
+.calculadora h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.calculadora label {
+    font-weight: bold;
+}
+
+.calculadora input,
+.calculadora select {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.calculadora .btn {
+    padding: 10px 20px;
+    background-color: #dc78e5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.calculadora .btn:hover {
+    background-color: #dc78e5;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.resultado p {
+    margin: 5px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.resultado strong {
+    font-weight: bold;
+}
+
+.contenedor-de-imagen {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px auto;
+}
+
+.contenedor-de-imagen img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
+}
+
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}

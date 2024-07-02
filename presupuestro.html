@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine | home</title>
+    <link rel="stylesheet" href="css/presupuesto.css">
+</head>
+<body>
+    <table>
+        <tr style="background-color: rgba(121, 121, 202, 0.623);">
+            <td class="titulo">
+                CINE CERTUS
+            </td>
+            <td class="contacto">
+                <a href="mailto:atencion@certus.edu.pe">atencion@certus.edu.pe</a>
+                <a href="https://www.instagram.com/kscl_24/?hl=es" target="_blank"><img src="img/redes/instagram.png" width="30" alt="Instagram"></a>
+                <a href="https://www.facebook.com/sebastian.llamocca.5" target="_blank"><img src="img/redes/facebook.png" width="30" alt="Facebook"></a>
+                <a href="tel:+123456789"><img src="img/redes/whatsapp.png" width="30" alt="WhatsApp"></a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul class="menu">
+                    <strong> <li><a href="index.html">home</a></li></strong>
+                    <li><a href="nosotros.html">nosotros</a></li>
+                    <li><a href="producto.html">producto</a></li>
+                    <li><a href="clientes.html">cliente</a></li>
+                    <li><a href="contactos.html">contactos</a></li>
+                    <li><a href="presupuestro.html">presupuesto</a></li>
+                    <li><a href="servicios.html">servicios</a></li>
+                    <li><a href="login.html">login</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <table class="presupuesto">
+        <tr>
+            <td colspan="2">
+                <img src="img/presupuesto/inmobiliaria.png" width="100%" alt="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center; font-size: 30px;">
+                <strong>PRESENTACION</strong>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="contenedor-de-imagen">
+                    <img src="img/presupuesto/tc.webp" width="30%" alt="">
+                    <img src="img/presupuesto/conceso.jfif" width="30%" alt="">
+                    <img src="img/presupuesto/Unite-Nike.png" width="30%" alt="">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="imagen">
+                <img src="img/download.png" alt="" width="100%">
+            </td>
+            <td class="formulario">
+                <h2>VALOR DE PREDIO</h2>
+                <strong> <label for="largo">Largo (m):</label></strong> 
+                <strong> <input type="text" id="largo"><br>
+                <label for="ancho">Ancho (m):</label></strong> 
+                <input type="text" id="ancho"><br>
+                <strong> <label for="distrito">Distrito:</label></strong> 
+
+                <select id="distrito" onchange="mostrarPrecioPorM2()">
+
+                    <option value="">Selecciona un distrito</option>
+                    <option value="Lima Cercado">Lima Cercado</option>
+                    <option value="La Victoria">La Victoria</option>
+                    <option value="Lince">Lince</option>
+                    <option value="Jesús María">Jesús María</option>
+                    <option value="Pueblo Libre">Pueblo Libre</option>
+
+                </select><br><br>
+                <button class="btn" onclick="calcular()">Calcular</button>
+                <button class="btn" onclick="limpiar()">Limpiar</button>
+                <div id="resultado" class="resultado">
+                    <p><strong>CÁLCULO:</strong></p>
+
+                    <p><strong>Área (m²): </strong><span id="area"></span></p>
+                    <p><strong>Distrito: </strong><span id="distrito-seleccionado"></span></p>
+                    <p><strong>Precio por m² (S/): </strong><span id="precio-m2"></span></p>
+                    <p><strong>Valor S/:</strong> <span id="valor-soles"></span></p>
+                    <p><strong>Valor US$:</strong> <span id="valor-dolares"></span></p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <script>
+        const precios = {
+            "Lima Cercado": 450.00,
+            "La Victoria": 550.00,
+            "Lince": 650.00,
+            "Jesús María": 670.00,
+            "Pueblo Libre": 750.00
+        };
+
+        const tipoCambio = 3.5;
+
+        function mostrarPrecioPorM2() {
+            let distrito = document.getElementById("distrito").value;
+            document.getElementById("precio-m2").textContent = precios[distrito].toFixed(2);
+        }
+
+        function calcular() {
+            let largo = parseFloat(document.getElementById("largo").value);
+            let ancho = parseFloat(document.getElementById("ancho").value);
+            let distrito = document.getElementById("distrito").value;
+
+            if (isNaN(largo) || isNaN(ancho)) {
+                alert("Ingrese valores numéricos para largo y ancho.");
+                return;
+            }
+
+            let area = largo * ancho;
+            let precioM2 = precios[distrito];
+            let valorSoles = area * precioM2;
+            let valorDolares = valorSoles / tipoCambio;
+
+            document.getElementById("area").textContent = area.toFixed(2);
+            document.getElementById("distrito-seleccionado").textContent = distrito;
+            document.getElementById("valor-soles").textContent = valorSoles.toFixed(2);
+            document.getElementById("valor-dolares").textContent = valorDolares.toFixed(2);
+        }
+
+        function limpiar() {
+            document.getElementById("largo").value = "";
+            document.getElementById("ancho").value = "";
+            document.getElementById("precio-m2").textContent = "";
+            document.getElementById("area").textContent = "";
+            document.getElementById("distrito-seleccionado").textContent = "";
+            document.getElementById("valor-soles").textContent = "";
+            document.getElementById("valor-dolares").textContent = "";
+        }
+    </script>
+</body>
+</html>
